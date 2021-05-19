@@ -1,6 +1,6 @@
 from typing import List
 
-class CombinationSolution:
+class Combination:
     # LeetCode 77. Combinations
     # Given two integers n and k, return all possible combinations of k numbers out of the range [1, n]. You may return the answer in any order.
     # Method: Backtracking
@@ -27,8 +27,7 @@ class CombinationSolution:
     # begin is the next number to start (this is to avoid repetition in the result)
     def backtracking(self, n: int, k: int, result: List[List[int]], begin: int, list: List[int]) -> None:
         if(len(list) == k):
-            # copy list to avoid change the original list
-            result.append(list[:])
+            result.append(list[:]) # copy list to avoid change the original list
             return
         for i in range(begin, n+1):
             list.append(i)
@@ -46,5 +45,5 @@ class CombinationSolution:
         print("]")
 
 
-test = CombinationSolution(4, 2)
+test = Combination(4, 2)
 test.main()
