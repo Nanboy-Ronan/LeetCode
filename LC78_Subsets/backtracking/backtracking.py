@@ -7,25 +7,31 @@ from typing import List
 
 
 class subsets:
-    # brute force
+    # backtracing
     # Time Complexity: O(n#2^n)
     # Space Complexity: O(n#2^n)
     def __init__(self, set: List) -> None:
         self.set = set
-    
+
     def main(self) -> None:
         result = self.subset(self.set)
         print(result)
-    
+        
     def subset(self, set: List[int]) -> List[List[int]]:
         result = [[]] # we start with an empty set (empty set is a subset of any set)
-
-        for num in set:
-            temp = [] # temp hold all the subsets after adding the next number
-            for subset in result:
-                temp.append(subset+[num])
-            
-            result = result + temp # append temp to result
+        for i in range(1, len(set)+1):
+            self.backtracking(set, result, i, 0, [])
         return result
+    
+    def backtracking(self, nums, result, length, index, subset):
+        # base case: stop when reaching the last element
+        if len(subset) == length:
+            result.append(subset[:])
+            return
+        
+        for i in range(index, len(nums)):
+            subset.append(nums[i])
+            self.backtracking(nums, result, length, i+1, subset)
+            subset.pop()
 subset = subsets([1,2,3])
 subset.main()
