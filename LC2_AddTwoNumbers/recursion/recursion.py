@@ -15,42 +15,23 @@ class ListNode:
         self.next = next
 
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
-    # iteration
+    # recurtion
     # Time Complexity: O(max(len(l1),len(l2)))
     # Space Complexity: O(max(len(l1),len(l2)))
-    total = 0 # the result after addition
-    isNextOne = 0 # if next digit is one
-    result = ListNode()
-    curr = result
 
-    while(l1 != None and l2 != None):
-        total = l1.val + l2.val + isNextOne
-        isNextOne = total // 10 # if next digit is one
-        curr.next = ListNode(total % 10) # current digit
-        curr = curr.next # update the pointer
-        l1 = l1.next
-        l2 = l2.next
-    
-    # if length of two linkedlist are not the same
-    while l1 != None:
-        total = l1.val + isNextOne
-        isNextOne = total // 10 # if next digit is one
-        curr.next = ListNode(total % 10) # current digit
-        curr = curr.next # update the pointer
-        l1 = l1.next
-    
-    while l2 != None:
-        total = l2.val + isNextOne
-        isNextOne = total // 10 # if next digit is one
-        curr.next = ListNode(total % 10) # current digit
-        curr = curr.next # update the pointer
-        l2 = l2.next
-    
-    # check if a new digit is needed when ends both linkedlist
-    if isNextOne != 0:
-        curr.next = ListNode(isNextOne)
-    
-    return result.next
+    # base case
+    total = l1.val + l2.val
+    isNextOne = total // 10
+    result = ListNode(total % 10)
+
+    if l1.next or l2.next or isNextOne: # l1 and l2 are not end or there is another one
+        l1 = l1.next if l1.next else ListNode(0)
+        l2 = l2.next if l2.next else ListNode(0)
+
+        l1.val = l1.val + isNextOne
+        result.next = addTwoNumbers(l1, l2)
+
+    return result
 
 class test1:
     def __init__(self) -> None:
@@ -70,6 +51,3 @@ class test1:
 
 test = test1()
 test.main()
-
-        
-        
