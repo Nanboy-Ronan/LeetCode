@@ -12,15 +12,21 @@ class ListNode:
         self.next = next
 
 def reverseList(head: ListNode) -> ListNode:
-    curr = head
-    next = None
+    # Iteration
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
+    if head is None:
+        return None
+    temp1 = head
+    temp2 = head.next
+    newHead = head
 
-    while curr is not None:
-        newNode = ListNode(curr.val, next)
-        next = newNode
-        curr = curr.next
-    
-    newHead = next
+    while temp2 is not None:
+        temp1.next = temp2.next
+        temp2.next = newHead
+        newHead = temp2
+        temp2 = temp1.next
+
     return newHead
 
 # # # # # # # # # # # # # # # # # # # # Test Cases # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
