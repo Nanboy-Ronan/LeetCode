@@ -36,6 +36,7 @@ def dfs(node: TreeNode, result: List[List[int]], level: int):
     dfs(node.left, result, level+1)
     dfs(node.right, result, level+1)
 
+# # # # # # # # # # # # # # # # # # # # Test Cases # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 root1 = TreeNode(3)
 root1.left = TreeNode(9)
 root1.right = TreeNode(20)

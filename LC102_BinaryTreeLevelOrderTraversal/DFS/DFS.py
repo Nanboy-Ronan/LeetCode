@@ -34,7 +34,7 @@ def dfs(root: TreeNode, result: List[List[int]], level: int) -> None:
     dfs(root.left, result, level+1)
     dfs(root.right, result, level+1)
 
-
+# # # # # # # # # # # # # # # # # # # # Test Cases # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 root1 = TreeNode(3)
 root1.left = TreeNode(9)
 root1.right = TreeNode(20)
