@@ -14,7 +14,7 @@ class ListNode:
 def reverseList(head: ListNode) -> ListNode:
     # Iteration
     # Time Complexity: O(n)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
     if head is None or head.next is None:
         return head
     result = reverseList(head.next)
