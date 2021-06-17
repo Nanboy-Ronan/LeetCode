@@ -19,6 +19,9 @@ from typing import List
 
 
 def numIslands(grid: List[List[str]]) -> int:
+    # DFS
+    # Time Complexity: O(m*n)
+    # Space Complexity: O(m*n)
     result = 0
     if grid is None or len(grid) == 0:
         return result
