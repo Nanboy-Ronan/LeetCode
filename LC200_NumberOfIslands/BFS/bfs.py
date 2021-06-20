@@ -31,34 +31,35 @@ def numIslands(grid: List[List[str]]) -> int:
     numRow = len(grid)
     numCol = len(grid[0])
 
-    queue = deque([])
+    
     for i in range(0,numRow):
         for j in range(0,numCol):
             if grid[i][j] == '1':
+                queue = deque([])
                 queue.append([i,j])
                 grid[i][j] = '0'
                 result += 1
             
-            while len(queue) != 0:
-                temp = queue.popleft()
-                x = temp[0] # row
-                y = temp[1] # col
-                if isInBound([x-1, y], numRow, numCol):
-                    if grid[x-1][y] == '1':
-                        grid[x-1][y] = '0'
-                        queue.append([x-1,y])
-                if isInBound([x+1, y], numRow, numCol):
-                    if grid[x+1][y] == '1':
-                        grid[x+1][y] = '0'
-                        queue.append([x+1,y])
-                if isInBound([x, y-1], numRow, numCol):
-                    if grid[x][y-1] == '1':
-                        grid[x][y-1] = '0'
-                        queue.append([x,y-1])
-                if isInBound([x, y+1], numRow, numCol):
-                    if grid[x][y+1] == '1':
-                        grid[x][y+1] = '0'
-                        queue.append([x,y+1])
+                while len(queue) != 0:
+                    temp = queue.popleft()
+                    x = temp[0] # row
+                    y = temp[1] # col
+                    if isInBound([x-1, y], numRow, numCol):
+                        if grid[x-1][y] == '1':
+                            grid[x-1][y] = '0'
+                            queue.append([x-1,y])
+                    if isInBound([x+1, y], numRow, numCol):
+                        if grid[x+1][y] == '1':
+                            grid[x+1][y] = '0'
+                            queue.append([x+1,y])
+                    if isInBound([x, y-1], numRow, numCol):
+                        if grid[x][y-1] == '1':
+                            grid[x][y-1] = '0'
+                            queue.append([x,y-1])
+                    if isInBound([x, y+1], numRow, numCol):
+                        if grid[x][y+1] == '1':
+                            grid[x][y+1] = '0'
+                            queue.append([x,y+1])
     return result
 
 def isInBound(coordinate: List[int], row: int, col: int) -> bool:
