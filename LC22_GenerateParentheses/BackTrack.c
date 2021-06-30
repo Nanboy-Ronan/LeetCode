@@ -24,7 +24,6 @@ void backTrack(int n, char** result, char* subset, int left, int right, int* res
         result = realloc(result, *resultSize*sizeof(char*));
         result[*resultSize-1] = malloc((n*2+1)*sizeof(char));
         memcpy(result[*resultSize-1],subset,(n*2+1)*sizeof(char));
-        //printf("27: %d\n",subset[2*n]=='\0');
         print(result[0]);
         return;
     }
@@ -38,7 +37,6 @@ void backTrack(int n, char** result, char* subset, int left, int right, int* res
         if(component == '(') backTrack(n,result,subset,left+1,right,resultSize,subsetSize);
         else if(component == ')') backTrack(n,result,subset,left,right+1,resultSize,subsetSize);
         *subsetSize = *subsetSize - 1;
-        //printf("40: %d\n",subset[2*n]=='\0');
     }
 }
 
