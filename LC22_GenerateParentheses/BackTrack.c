@@ -61,9 +61,9 @@ int main(){
     printf("ReturnSize is %d\n",*returnSize1);
     printf("Return String is \n");
     // print string
-    // for(int i = 0; i < *returnSize1; i++){
-    //     printf("{");
-    //     print(result1[i]);
-    //     printf("}");
-    // }
+    for(int i = 0; i < *returnSize1; i++){
+        printf("{");
+        print(result1[i]);
+        printf("}");
+    }
 }
