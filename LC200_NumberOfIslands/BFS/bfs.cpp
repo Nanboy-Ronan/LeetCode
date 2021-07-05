@@ -27,6 +27,9 @@ bool isInBound(pair<int, int> p, int row, int col){
 }
 
 int numIslands(vector<vector<char>>& grid){
+    // BFS
+    // Time Complexity: O(m*n)
+    // Space Complexity: O(m*n)
     if(grid.size() == 0){
         return 0;
     }
