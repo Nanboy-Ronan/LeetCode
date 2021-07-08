@@ -11,4 +11,34 @@
 from typing import List
 
 
-def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+def groupAnagrams(strs: List[str]) -> List[List[str]]:
+    # Hash
+    # Time Complexity: O(nk)
+    # Space Complexity: O(nk)
+    if len(strs) <= 1:
+        return [strs]
+    
+    result = {}
+
+    # count the number of each letter in the word
+    for str in strs:
+        count_table = [0]*26 # [0,0,0...,0]
+        for char in str:
+            # ord('a'): 97
+            # ord('b'): 98
+            # ord('c'): 99
+            count_table[ord(char)-ord('a')] += 1 # add one in each index correspond to the letter
+        # if count_table is the same, then same word but different sequence of letter
+        key = tuple(count_table) # tuple is hashable while list is not
+        result[key] = result.get(key,[]) + [str]
+    return result.values()
+
+# # # # # # # # # # # # # # # # # # # # Test Cases # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+print("test 1: ")
+print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+print("test 2: ")
+print(groupAnagrams([""]))
+
+print("test 3: ")
+print(groupAnagrams(["a"]))
