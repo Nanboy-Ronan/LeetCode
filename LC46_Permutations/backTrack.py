@@ -12,7 +12,7 @@ from typing import List
 
 def permute(nums: List[int]) -> List[List[int]]:
     if len(nums) == 0:
-        return []
+        return [[]]
     
     result = []
     visited = {}
