@@ -12,8 +12,9 @@ class Solution {
         result.add(new ArrayList<>());
         Arrays.sort(nums);
         for(int num : nums){
-            for(List<Integer> ele : result){
-                List<Integer> temp = new ArrayList<>(ele);
+            int result_size = result.size();
+            for(int i = 0; i < result_size; i++){
+                List<Integer> temp = new ArrayList<>(result.get(i));
                 temp.add(num);
                 result.add(temp);
             }
