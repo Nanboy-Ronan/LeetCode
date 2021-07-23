@@ -30,5 +30,5 @@ class Solution:
             if i > index and nums[i] == nums[i-1]:
                 continue
             subset.append(nums[i])
-            self.backTrack(nums,length,index+1,result,subset)
+            self.backTrack(nums,length,i+1,result,subset)
             subset.pop()
