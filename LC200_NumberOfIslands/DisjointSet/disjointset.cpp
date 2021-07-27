@@ -29,6 +29,7 @@ public:
         numSet = row * col;
         for(int i = 0; i < numSet; i++){
             root.push_back(i);
+            rank.push_back(0);
         }
     }
 
@@ -45,17 +46,24 @@ public:
         int repreY = find(y);
 
         if (repreX != repreY){
+            if(rank[repreX] > rank[repreY]){
+                swap(repreX,repreY);
+            }
             root[repreX] = repreY;
+            if(rank[repreX] == rank[repreY]){
+                rank[repreX] += 1;
+            }
             numSet--;
         }
     }
 
-    int getNumSet(){
+    int getNumSet() const{
         return numSet;
     }
 
 private:
     vector<int> root;
+    vector<int> rank;
     int numSet;
 };
 
