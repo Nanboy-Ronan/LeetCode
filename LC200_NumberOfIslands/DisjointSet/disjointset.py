@@ -50,8 +50,9 @@ class DisjointSet:
     def __init__(self, grid) -> None:
         row = len(grid)
         col = len(grid[0])
-        self.root = [-1]*(row*col)
         self.numSet = row*col
+        self.root = [-1]*self.numSet
+        self.rank = [0]*self.numSet
         for i in range(0, row*col):
             self.root[i] = i # root[x] is the representative
     
@@ -66,7 +67,11 @@ class DisjointSet:
         repreX = self.find(x)
         repreY = self.find(y)
         if repreX != repreY:
+            if self.rank[repreX] > self.rank[repreY]:
+                repreX,repreY = repreY,repreX
             self.root[repreX] = repreY
+            if self.rank[repreX] == self.rank[repreY]:
+                self.rank[repreX] += 1
             self.numSet -= 1
     
     def getNumSet(self) -> int:
