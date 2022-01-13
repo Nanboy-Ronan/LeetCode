@@ -118,6 +118,11 @@ int main(){
                                                             };
     result = numIslands(test2);
     cout << result << endl;
+
+    cout << "test 3: " << endl;
+    vector<vector<char>> test3 = {{'1'},{'1'}};
+    result = numIslands(test3);
+    cout << result << endl;
     
     return 0;
 }
