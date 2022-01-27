@@ -4,8 +4,6 @@ Given head, the head of a linked list, determine if the linked list has a cycle 
 
 from typing import Optional
 
-from sqlalchemy import true
-
 
 class ListNode:
     def __init__(self, x):
