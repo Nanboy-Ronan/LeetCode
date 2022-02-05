@@ -14,7 +14,7 @@ class Solution {
         }
         int left = 1, right = x / 2;
         while(left <= right){
-            int middle = left + (right - left) / 2;
+            long middle = left + (right - left) / 2;
             if(middle*middle == x){
                 return (int)middle;
             }else if(middle*middle > x){
