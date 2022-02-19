@@ -4,6 +4,9 @@ Given two integers x and y, return the Hamming distance between them.
 */
 
 class Solution {
+    // Bit-wide operation
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     public int hammingDistance(int x, int y) {
         int diff = x ^ y;
         int result = 0;
