@@ -8,7 +8,6 @@ class Solution {
     public int findKthLargest(int[] nums, int k) {
         int left = 0;
         int right = nums.length - 1;
-        List<Integer> num = new ArrayList<>();
         while(true){
             int pivot = partition(nums, left, right);
             if(pivot == k - 1) return nums[pivot];
