@@ -10,20 +10,24 @@ class MinStack {
     }
     
     public void push(int val) {
+        // Time Complexity: O(1)
         s.push(val);
         if(minS.isEmpty() || minS.peek() >= val) minS.push(val);       
     }
     
     public void pop() {
+        // Time Complexity: O(1)
         int temp = s.pop();
         if(minS.peek() == temp) minS.pop();
     }
     
     public int top() {
+        // Time Complexity: O(1)
         return s.peek();
     }
     
     public int getMin() {
+        // Time Complexity: O(1)
         return minS.peek();
     }
 }
