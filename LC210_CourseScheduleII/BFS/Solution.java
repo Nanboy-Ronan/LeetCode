@@ -1,16 +1,11 @@
-import java.lang.reflect.Array;
-import java.sql.ResultSet;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 class Solution {
-    public int[] findOrder(int numCourses, int[][] prerequisites) { //[[1,0],[2,0],[3,1],[3,2]]
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
         // The number of prerequisite courses for each node
         HashMap<Integer,Integer> outNum = new HashMap<>();
         // The number of courses that has this node as prerequisite
@@ -38,7 +33,7 @@ class Solution {
             outNum.put(curr, temp+1);
 
             if(!inNodes.containsKey(currPrerequisite)){
-                inNodes.put(curr, new ArrayList<>());
+                inNodes.put(currPrerequisite, new ArrayList<>());
             }
 
             ArrayList<Integer> list = inNodes.get(currPrerequisite);
