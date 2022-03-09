@@ -8,7 +8,7 @@ class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         // The number of prerequisite courses for each node
         HashMap<Integer,Integer> outNum = new HashMap<>();
-        // The number of courses that has this node as prerequisite
+        // The courses that has this node as prerequisite
         HashMap<Integer, ArrayList<Integer>> inNodes = new HashMap<>();
 
         HashSet<Integer> set = new HashSet<>();
