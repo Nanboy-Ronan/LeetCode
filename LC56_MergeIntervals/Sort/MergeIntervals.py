@@ -10,6 +10,9 @@ from typing import List
 
 
 def merge(intervals: List[List[int]]) -> List[List[int]]:
+    # Sort
+    # Time Complexity: O(nlogn)
+    # Space Complexity: O(1)
     if len(intervals) == 0 or len(intervals) == 1:
         return intervals
 

@@ -19,6 +19,9 @@ bool cmp(vector<int> a, vector<int> b){
 }
 
 vector<vector<int>> merge(vector<vector<int>>& intervals) {
+    // Sort
+    // Time Complexity: O(nlogn)
+    // Space Complexity: O(1)
     sort(intervals.begin(), intervals.end(), cmp);
 
     vector<vector<int>> result;
