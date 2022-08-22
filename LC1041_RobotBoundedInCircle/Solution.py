@@ -7,7 +7,7 @@ class Solution:
         turn_right[(0,1)] = (1, 0)
         turn_right[(1,0)] = (0, -1)
         turn_right[(0,-1)] = (-1, 0)
-        turn_right[(-1,0)] = (1, 0)
+        turn_right[(-1,0)] = (0, 1)
 
         turn_left = {}
         turn_left[(0,1)] = (-1, 0)
