@@ -29,7 +29,7 @@ def isValid(str: str) -> bool:
                 return False
             elif temp == '{' and char != '}':
                 return False
-    return False if len(stack) != 0 else True # more left bracket than left
+    return False if len(stack) != 0 else True # more left bracket than right
 
 # # # # # # # # # # # # # # # # # # # # Test Cases # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 print(isValid(""))
